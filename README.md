@@ -7,13 +7,13 @@ To run the tests, follow these steps. You must have at least node v10 and [yarn]
 First clone the repository:
 
 ```sh
-git clone https://github.com/1Hive/honeyswap-sdk.git
+git clone https://github.com/1Hive/dex-sdk.git
 ```
 
-Move into the honeyswap-sdk working directory
+Move into the dex-sdk working directory
 
 ```sh
-cd honeyswap-sdk/
+cd dex-sdk/
 ```
 
 Install dependencies

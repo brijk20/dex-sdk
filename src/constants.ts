@@ -10,7 +10,7 @@ import {
   sokol as coreSokol,
   xdai as coreXDai,
   matic as coreMatic
-} from 'dxswap-core/.contracts.json'
+} from 'dex-core/.contracts.json'
 import {
   rinkeby as peripheryRinkeby,
   mainnet as peripheryMainnet,
@@ -18,7 +18,7 @@ import {
   sokol as peripherySokol,
   xdai as peripheryXDai,
   matic as peripheryMatic
-} from 'dxswap-periphery/.contracts.json'
+} from 'dex-periphery/.contracts.json'
 
 // exports for external consumption
 export type BigintIsh = JSBI | bigint | string
