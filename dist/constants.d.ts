@@ -5,12 +5,15 @@ import STAKING_REWARDS_DISTRIBUTION_ABI from './abis/staking-rewards-distributio
 import TOKEN_REGISTRY_ABI from './abis/token-registry.json';
 export declare type BigintIsh = JSBI | bigint | string;
 export declare enum ChainId {
-    MAINNET = 5,
-    RINKEBY = 5,
-    ARBITRUM_TESTNET_V3 = 5,
-    SOKOL = 5,
-    XDAI = 97,
-    MATIC = 97
+    MAINNET = 1,
+    RINKEBY = 4,
+    ARBITRUM_TESTNET_V3 = 79377087078960,
+    SOKOL = 77,
+    XDAI = 100,
+    MATIC = 137,
+    tAVALANCHE = 43113,
+    tMATIC = 80001,
+    tBINANCE = 97
 }
 export declare enum TradeType {
     EXACT_INPUT = 0,

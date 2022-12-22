@@ -28,7 +28,11 @@ const INITIAL_CACHE_STATE = {
   [ChainId.ARBITRUM_TESTNET_V3]: {},
   [ChainId.SOKOL]: {},
   [ChainId.XDAI]: {},
-  [ChainId.MATIC]: {}
+  [ChainId.MATIC]: {},
+  [ChainId.tAVALANCHE]: {},
+  [ChainId.tMATIC]: {},
+  [ChainId.tBINANCE]: {}
+
 }
 
 let PAIR_ADDRESS_CACHE: {
@@ -76,11 +80,7 @@ export class Pair {
     return this.liquidityToken.address === other.liquidityToken.address
   }
 
-  public static getAddress(
-    tokenA: Token,
-    tokenB: Token,
-    platform: RoutablePlatform = RoutablePlatform.HONEYSWAP
-  ): string {
+  public static getAddress(tokenA: Token, tokenB: Token, platform: RoutablePlatform = RoutablePlatform.HONEYSWAP): string {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
     const chainId = tokenA.chainId
     invariant(platform.supportsChain(chainId), 'INVALID_PLATFORM_CHAIN_ID')
@@ -96,7 +96,7 @@ export class Pair {
               [tokens[1].address]: getCreate2Address(
                 platform.factoryAddress[chainId] as string,
                 keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-                platform.initCodeHash[chainId] as string
+                platform.initCodeHash[chainId] as string,
               )
             }
           }
@@ -121,13 +121,7 @@ export class Pair {
 
     this.platform = platform ? platform : RoutablePlatform.HONEYSWAP
     const liquidityTokenAddress = Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform)
-    this.liquidityToken = new Token(
-      tokenAmounts[0].token.chainId,
-      liquidityTokenAddress,
-      18,
-      'OS-LPs',
-      'OutletSwap-LPs'
-    )
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DEX', 'DexSwap') // DexSwap Token LP?
     this.protocolFeeDenominator = protocolFeeDenominator ? protocolFeeDenominator : defaultProtocolFeeDenominator
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
     this.swapFee = swapFee ? swapFee : platform.defaultSwapFee

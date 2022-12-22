@@ -41,17 +41,38 @@ export class Token extends Currency {
     ),
     [ChainId.XDAI]: new Token(
       ChainId.XDAI,
-      '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+      '0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1',
       18,
       'WETH',
-      'Binance-Peg Ethereum Token'
+      'Wrapped Ether on xDai'
     ),
     [ChainId.MATIC]: new Token(
       ChainId.MATIC,
-      '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+      '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
       18,
       'WETH',
-      'Binance-Peg Ethereum Token'
+      'Wrapped Ether on Matic'
+    ),
+    [ChainId.tAVALANCHE]: new Token(
+      ChainId.tAVALANCHE,
+      '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
+      18,
+      'WETH',
+      'Wrapped Ether on tAvalanche'
+    ),
+    [ChainId.tMATIC]: new Token(
+      ChainId.tMATIC,
+      '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
+      18,
+      'WETH',
+      'Wrapped Ether on tMatic'
+    ),
+    [ChainId.tBINANCE]: new Token(
+      ChainId.tBINANCE,
+      '0x7ceb23fd6bc0add59e62ac25578270cff1b9f619',
+      18,
+      'WETH',
+      'Wrapped Ether on tBSC'
     )
   }
 
@@ -60,11 +81,11 @@ export class Token extends Currency {
   }
 
   public static readonly WXDAI: { [key: number]: Token } = {
-    [ChainId.XDAI]: new Token(ChainId.XDAI, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
+    [ChainId.XDAI]: new Token(ChainId.XDAI, '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 18, 'WXDAI', 'Wrapped xDAI')
   }
 
   public static readonly WMATIC: { [key: number]: Token } = {
-    [ChainId.MATIC]: new Token(ChainId.MATIC, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
+    [ChainId.MATIC]: new Token(ChainId.MATIC, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'WMATIC', 'Wrapped Matic')
   }
 
   public static readonly DXD: { [key: number]: Token } = {
@@ -79,13 +100,29 @@ export class Token extends Currency {
     )
   }
 
+  public static readonly tWAVALANCHE: { [key: number]: Token } = {
+    [ChainId.tAVALANCHE]: new Token(ChainId.tAVALANCHE, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'tWAVAX', 'Wrapped tAvalanche')
+  }
+
+  public static readonly tWMATIC: { [key: number]: Token } = {
+    [ChainId.tMATIC]: new Token(ChainId.tMATIC, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'tWMATIC', 'Wrapped tMatic')
+  }
+
+  public static readonly tWBINANCE: { [key: number]: Token } = {
+    [ChainId.tBINANCE]: new Token(ChainId.tBINANCE, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'tWBNB', 'Wrapped tBNB')
+  }
+
   private static readonly NATIVE_CURRENCY_WRAPPER: { [chainId in ChainId]: Token } = {
     [ChainId.MAINNET]: Token.WETH[ChainId.MAINNET],
     [ChainId.RINKEBY]: Token.WETH[ChainId.RINKEBY],
     [ChainId.ARBITRUM_TESTNET_V3]: Token.WETH[ChainId.ARBITRUM_TESTNET_V3],
     [ChainId.SOKOL]: Token.WSPOA[ChainId.SOKOL],
     [ChainId.XDAI]: Token.WXDAI[ChainId.XDAI],
-    [ChainId.MATIC]: Token.WMATIC[ChainId.MATIC]
+    [ChainId.MATIC]: Token.WMATIC[ChainId.MATIC],
+
+    [ChainId.tAVALANCHE]: Token.tWAVALANCHE[ChainId.tAVALANCHE],
+    [ChainId.tMATIC]: Token.tWMATIC[ChainId.tMATIC],
+    [ChainId.tBINANCE]: Token.tWBINANCE[ChainId.tBINANCE]
   }
 
   public constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string) {
@@ -148,3 +185,7 @@ export const WSPOA = Token.WSPOA
 export const DXD = Token.DXD
 export const WXDAI = Token.WXDAI
 export const WMATIC = Token.WMATIC
+
+export const tWAVALANCHE = Token.tWAVALANCHE
+export const tWMATIC = Token.tWMATIC
+export const tWBINANCE = Token.tWBINANCE

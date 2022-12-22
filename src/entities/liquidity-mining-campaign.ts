@@ -33,7 +33,21 @@ const MINIMUM_STAKED_AMOUNT_NATIVE_CURRENCY: { [chainId in ChainId]: CurrencyAmo
   [ChainId.MATIC]: CurrencyAmount.nativeCurrency(
     utils.parseUnits('1000', Token.getNative(ChainId.MATIC).decimals).toString(),
     ChainId.MATIC
+  ),
+  [ChainId.tAVALANCHE]: CurrencyAmount.nativeCurrency(
+    utils.parseUnits('1000', Token.getNative(ChainId.tAVALANCHE).decimals).toString(),
+    ChainId.tAVALANCHE
+  ),
+  [ChainId.tMATIC]: CurrencyAmount.nativeCurrency(
+    utils.parseUnits('1000', Token.getNative(ChainId.tMATIC).decimals).toString(),
+    ChainId.MATIC
+  ),
+  [ChainId.tBINANCE]: CurrencyAmount.nativeCurrency(
+    utils.parseUnits('0.1', Token.getNative(ChainId.tBINANCE).decimals).toString(),
+    ChainId.tBINANCE
   )
+
+
 }
 
 export class LiquidityMiningCampaign {

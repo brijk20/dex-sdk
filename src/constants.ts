@@ -10,7 +10,7 @@ import {
   sokol as coreSokol,
   xdai as coreXDai,
   matic as coreMatic
-} from 'dex-core/.contracts.json'
+} from 'dxswap-core/.contracts.json'
 import {
   rinkeby as peripheryRinkeby,
   mainnet as peripheryMainnet,
@@ -18,18 +18,21 @@ import {
   sokol as peripherySokol,
   xdai as peripheryXDai,
   matic as peripheryMatic
-} from 'dex-periphery/.contracts.json'
+} from 'dxswap-periphery/.contracts.json'
 
 // exports for external consumption
 export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
-  MAINNET = 5,
-  RINKEBY = 5,
-  ARBITRUM_TESTNET_V3 = 5,
-  SOKOL = 5,
-  XDAI = 56,
-  MATIC = 56
+  MAINNET = 1,
+  RINKEBY = 4,
+  ARBITRUM_TESTNET_V3 = 79377087078960,
+  SOKOL = 77,
+  XDAI = 100,
+  MATIC = 137,
+  tAVALANCHE = 43113,
+  tMATIC = 80001,
+  tBINANCE = 97
 }
 
 export enum TradeType {
@@ -60,7 +63,11 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.ARBITRUM_TESTNET_V3]: peripheryArbitrumTestnetV3.router,
   [ChainId.SOKOL]: peripherySokol.router,
   [ChainId.XDAI]: peripheryXDai.router,
-  [ChainId.MATIC]: peripheryMatic.router
+  [ChainId.MATIC]: peripheryMatic.router,
+  [ChainId.tAVALANCHE]: peripheryMatic.router,
+  [ChainId.tMATIC]: peripheryMatic.router,
+  [ChainId.tBINANCE]: peripheryMatic.router
+
 }
 
 export const STAKING_REWARDS_FACTORY_ADDRESS: { [chainId: number]: string } = {
@@ -68,8 +75,12 @@ export const STAKING_REWARDS_FACTORY_ADDRESS: { [chainId: number]: string } = {
   [ChainId.RINKEBY]: '0xDcA39454f0B83c6f0807708b0E6a620dd9BA6808',
   [ChainId.ARBITRUM_TESTNET_V3]: '0xB95Ad562EDE8DD78BBFC287fA18150e802b09D9F',
   [ChainId.SOKOL]: '0xD436e756Cf41318ADeC62E8dCbEF2608753Ae068',
-  [ChainId.XDAI]: '0x0000000000000000000000000000000000001234',
-  [ChainId.MATIC]: '0x0000000000000000000000000000000000001234'
+  [ChainId.XDAI]: '0xCD2A45F36464FdB1065160e03A2353996Ea8Ff57',
+  [ChainId.MATIC]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tAVALANCHE]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tMATIC]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tBINANCE]: '0x0000000000000000000000000000000000001234'
+  
 }
 
 export const TOKEN_REGISTRY_ADDRESS: { [chainId: number]: string } = {
@@ -77,8 +88,12 @@ export const TOKEN_REGISTRY_ADDRESS: { [chainId: number]: string } = {
   [ChainId.RINKEBY]: '0x815d1b18f6baaeb3853b0f637475a5c2b28e2253',
   [ChainId.ARBITRUM_TESTNET_V3]: '0x9d6f6d86b81289e40e07fcda805c06f6e9b8f629',
   [ChainId.SOKOL]: '0x681c3836a5589b933062ACA4fd846c1287a2865F',
-  [ChainId.XDAI]: '0x0000000000000000000000000000000000001234',
-  [ChainId.MATIC]: '0x0000000000000000000000000000000000001234'
+  [ChainId.XDAI]: '0x85E001DfFF16F388Bc32Cd18009ceDF8F9b62C9E',
+  [ChainId.MATIC]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tAVALANCHE]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tMATIC]: '0x0000000000000000000000000000000000001234',
+  [ChainId.tBINANCE]: '0x0000000000000000000000000000000000001234'
+  
 }
 
 export const DXSWAP_TOKEN_LIST_ID: { [chainId: number]: number } = {
@@ -86,8 +101,11 @@ export const DXSWAP_TOKEN_LIST_ID: { [chainId: number]: number } = {
   [ChainId.RINKEBY]: 1,
   [ChainId.ARBITRUM_TESTNET_V3]: 1,
   [ChainId.SOKOL]: 1,
-  [ChainId.XDAI]: 56,
-  [ChainId.MATIC]: 56
+  [ChainId.XDAI]: 5,
+  [ChainId.MATIC]: 137,
+  [ChainId.tAVALANCHE]: 43113,
+  [ChainId.tMATIC]: 80001,
+  [ChainId.tBINANCE]: 97
 }
 
 export const INIT_CODE_HASH: { [chainId: number]: string } = {
@@ -95,8 +113,11 @@ export const INIT_CODE_HASH: { [chainId: number]: string } = {
   [ChainId.RINKEBY]: '0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776', // Swapr
   [ChainId.ARBITRUM_TESTNET_V3]: '0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776', // Swapr
   [ChainId.SOKOL]: '0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776', // Swapr
-  [ChainId.XDAI]: '0x57378e93a24e4cd010fac37912c935f8e69d194ebf0d05a6335c1f30b05ecc7c', // Honeyswap
-  [ChainId.MATIC]: '0x57378e93a24e4cd010fac37912c935f8e69d194ebf0d05a6335c1f30b05ecc7c' // Honeyswap
+  [ChainId.XDAI]: '0x3f88503e8580ab941773b59034fb4b2a63e86dbc031b3633a925533ad3ed2b93', // Honeyswap
+  [ChainId.MATIC]: '0xae81bbc68f315fbbf7617eb881349af83b1e95241f616966e1e0583ecd0793fe', // Honeyswap
+  [ChainId.tAVALANCHE]: '0x3f88503e8580ab941773b59034fb4b2a63e86dbc031b3633a925533ad3ed2b93', // Honeyswap
+  [ChainId.tMATIC]: '0x3f88503e8580ab941773b59034fb4b2a63e86dbc031b3633a925533ad3ed2b93', // Honeyswap
+  [ChainId.tBINANCE]: '0x3f88503e8580ab941773b59034fb4b2a63e86dbc031b3633a925533ad3ed2b93' // Honeyswap
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
@@ -133,8 +154,11 @@ const PERMISSIVE_MULTICALL_ADDRESS: { [chainId: number]: string } = {
   [ChainId.RINKEBY]: '0x798d8ced4dff8f054a5153762187e84751a73344',
   [ChainId.ARBITRUM_TESTNET_V3]: '0x73a08DC74eF4ed2c360199244bb69F1464204E7C',
   [ChainId.SOKOL]: '0x4D97Bd8eFaCf46b33c4438Ed0B7B6AABfa2359FB',
-  [ChainId.XDAI]: '0xF71F01acBB796Fd83A3C57637039B0b2dc6CAd1e',
-  [ChainId.MATIC]: '0xF71F01acBB796Fd83A3C57637039B0b2dc6CAd1e'
+  [ChainId.XDAI]: '0x4E75068ED2338fCa56631E740B0723A6dbc1d5CD',
+  [ChainId.MATIC]: '0x95028E5B8a734bb7E2071F96De89BABe75be9C8E',
+  [ChainId.tAVALANCHE]: '0x4E75068ED2338fCa56631E740B0723A6dbc1d5CD',
+  [ChainId.tMATIC]: '0x4E75068ED2338fCa56631E740B0723A6dbc1d5CD',
+  [ChainId.tBINANCE]: '0x4E75068ED2338fCa56631E740B0723A6dbc1d5CD'
 }
 
 export {

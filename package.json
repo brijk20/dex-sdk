@@ -1,5 +1,5 @@
 {
-  "name": "dex-sdk",
+  "name": "dxswap-sdk",
   "license": "AGPL-3.0-or-later",
   "version": "0.9.4",
   "description": "An SDK for building applications on top of DXswap.",
@@ -24,10 +24,9 @@
   "dependencies": {
     "@makerdao/multicall": "^0.11.0",
     "big.js": "^5.2.2",
-    "caniuse-lite": "^1.0.30001439",
     "decimal.js-light": "^2.5.0",
-    "dex-core": "https://github.com/brijk20/dex-core.git",
-    "dex-periphery": "https://github.com/brijk20/dex-periphery.git",
+    "dxswap-core": "https://github.com/brijk20/dxswap-core.git#master",
+    "dxswap-periphery": "https://github.com/brijk20/dxswap-periphery.git#master",
     "jsbi": "^3.1.1",
     "node-fetch": "^2.6.1",
     "tiny-invariant": "^1.1.0",

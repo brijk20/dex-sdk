@@ -2,7 +2,7 @@
 'use strict'
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./dex-sdk.cjs.production.min.js')
+  module.exports = require('./dxswap-sdk.cjs.production.min.js')
 } else {
-  module.exports = require('./dex-sdk.cjs.development.js')
+  module.exports = require('./dxswap-sdk.cjs.development.js')
 }

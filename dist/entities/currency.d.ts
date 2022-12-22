@@ -14,6 +14,9 @@ export declare class Currency {
     static readonly SPOA: Currency;
     static readonly XDAI: Currency;
     static readonly MATIC: Currency;
+    static readonly tAVALANCHE: Currency;
+    static readonly tMATIC: Currency;
+    static readonly tBINANCE: Currency;
     private static readonly NATIVE_CURRENCY;
     /**
      * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
@@ -30,3 +33,6 @@ export declare const ETHER: Currency;
 export declare const SPOA: Currency;
 export declare const XDAI: Currency;
 export declare const MATIC: Currency;
+export declare const tAVALANCHE: Currency;
+export declare const tMATIC: Currency;
+export declare const tBINANCE: Currency;

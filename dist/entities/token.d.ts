@@ -21,6 +21,15 @@ export declare class Token extends Currency {
     static readonly DXD: {
         [key: number]: Token;
     };
+    static readonly tWAVALANCHE: {
+        [key: number]: Token;
+    };
+    static readonly tWMATIC: {
+        [key: number]: Token;
+    };
+    static readonly tWBINANCE: {
+        [key: number]: Token;
+    };
     private static readonly NATIVE_CURRENCY_WRAPPER;
     constructor(chainId: ChainId, address: string, decimals: number, symbol?: string, name?: string);
     /**
@@ -55,5 +64,14 @@ export declare const WXDAI: {
     [key: number]: Token;
 };
 export declare const WMATIC: {
+    [key: number]: Token;
+};
+export declare const tWAVALANCHE: {
+    [key: number]: Token;
+};
+export declare const tWMATIC: {
+    [key: number]: Token;
+};
+export declare const tWBINANCE: {
     [key: number]: Token;
 };

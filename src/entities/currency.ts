@@ -20,8 +20,12 @@ export class Currency {
   // Native currencies for deployment chains
   public static readonly ETHER: Currency = new Currency(18, 'ETH', 'Ether')
   public static readonly SPOA: Currency = new Currency(18, 'SPOA', 'Sokol POA')
-  public static readonly XDAI: Currency = new Currency(18, 'BNB', 'Binance Smart Chain')
-  public static readonly MATIC: Currency = new Currency(18, 'BNB', 'Binance Smart Chain')
+  public static readonly XDAI: Currency = new Currency(18, 'XDAI', 'xDAI')
+  public static readonly MATIC: Currency = new Currency(18, 'MATIC', 'MATIC')
+  public static readonly tAVALANCHE: Currency = new Currency(18, 'tAVAX', 'tAVALANCHE')
+  public static readonly tMATIC: Currency = new Currency(18, 'tMATIC', 'tMATIC')
+  public static readonly tBINANCE: Currency = new Currency(18, 'tBNB', 'tBNB')
+
 
   private static readonly NATIVE_CURRENCY: { [chainId in ChainId]: Currency } = {
     [ChainId.MAINNET]: Currency.ETHER,
@@ -29,7 +33,11 @@ export class Currency {
     [ChainId.ARBITRUM_TESTNET_V3]: Currency.ETHER,
     [ChainId.SOKOL]: Currency.SPOA,
     [ChainId.XDAI]: Currency.XDAI,
-    [ChainId.MATIC]: Currency.MATIC
+    [ChainId.MATIC]: Currency.MATIC,
+    [ChainId.tAVALANCHE]: Currency.tAVALANCHE,
+    [ChainId.tMATIC]: Currency.tMATIC,
+    [ChainId.tBINANCE]: Currency.tBINANCE
+
   }
 
   /**
@@ -61,3 +69,7 @@ export const ETHER = Currency.ETHER
 export const SPOA = Currency.SPOA
 export const XDAI = Currency.XDAI
 export const MATIC = Currency.MATIC
+export const tAVALANCHE = Currency.tAVALANCHE
+export const tMATIC = Currency.tMATIC
+export const tBINANCE = Currency.tBINANCE
+

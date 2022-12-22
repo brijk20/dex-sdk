@@ -4,8 +4,8 @@ import { getNetwork } from '@ethersproject/networks'
 import { getDefaultProvider, Provider } from '@ethersproject/providers'
 import { TokenAmount } from './entities/fractions/tokenAmount'
 import { Pair } from './entities/pair'
-import IDXswapPair from 'dex-core/build/IDXswapPair.json'
-import IDXswapFactory from 'dex-core/build/IDXswapFactory.json'
+import IDXswapPair from 'dxswap-core/build/IDXswapPair.json'
+import IDXswapFactory from 'dxswap-core/build/IDXswapFactory.json'
 import invariant from 'tiny-invariant'
 import ERC20Abi from './abis/ERC20.json'
 // import TokenRegistryAbi from './abis/token-registry.json'
@@ -39,7 +39,10 @@ const TOKEN_LOGO_URI_CACHE: {
   [ChainId.SOKOL]: {},
   [ChainId.ARBITRUM_TESTNET_V3]: {},
   [ChainId.RINKEBY]: {},
-  [ChainId.MATIC]: {}
+  [ChainId.MATIC]: {},
+  [ChainId.tAVALANCHE]: {},
+  [ChainId.tMATIC]: {},
+  [ChainId.tBINANCE]: {}
 }
 
 /**
@@ -375,7 +378,10 @@ export abstract class Fetcher {
     const tokenListUrl = new Map([
       [1, 'https://tokens.coingecko.com/uniswap/all.json'],
       [100, 'https://tokens.honeyswap.org'],
-      [56, 'http://172.20.10.2:3000/honeyswap-default.tokenlist.json']
+      [137, 'https://tokens.honeyswap.org'],
+      [97, 'https://github.com/brijk20/DEX/blob/main/package.json'],
+      [80001, 'https://github.com/brijk20/DEX/blob/main/package.json'],
+      [43113, 'https://github.com/brijk20/DEX/blob/main/package.json']
     ])
 
     // const tokenRegistryContract = new Contract(TOKEN_REGISTRY_ADDRESS[chainId], TokenRegistryAbi, provider)

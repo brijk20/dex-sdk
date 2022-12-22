@@ -16,6 +16,7 @@ const BAOSWAP_ROUTER_ADDRESS = '0x6093AeBAC87d62b1A5a4cEec91204e35020E38bE'
 const QUICKSWAP_ROUTER_ADDRESS = '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff'
 const SUSHISWAP_XDAI_ROUTER_ADDRESS = '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
 
+
 /**
  * A platform to which Swapr can route through.
  */
@@ -23,11 +24,11 @@ export class RoutablePlatform {
   public readonly name: string
   public readonly factoryAddress: { [supportedChainId in ChainId]?: string }
   public readonly routerAddress: { [supportedChainId in ChainId]?: string }
-  public readonly initCodeHash: { [supportedChainId in ChainId]?: string }
+  public readonly initCodeHash : { [supportedChainId in ChainId]?: string }
   public readonly defaultSwapFee: BigintIsh
 
   public static readonly HONEYSWAP = new RoutablePlatform(
-    'Honeyswap',
+    'Dexswap',
     FACTORY_ADDRESS,
     ROUTER_ADDRESS,
     INIT_CODE_HASH,
@@ -42,19 +43,19 @@ export class RoutablePlatform {
   )
   public static readonly SUSHISWAP = new RoutablePlatform(
     'Sushiswap',
-    {
-      [ChainId.MAINNET]: SUSHISWAP_FACTORY_ADDRESS,
-      [ChainId.RINKEBY]: SUSHISWAP_FACTORY_ADDRESS,
+    { 
+      [ChainId.MAINNET]: SUSHISWAP_FACTORY_ADDRESS, 
+      [ChainId.RINKEBY]: SUSHISWAP_FACTORY_ADDRESS, 
       [ChainId.MATIC]: SUSHISWAP_MATIC_FACTORY_ADDRESS,
-      [ChainId.XDAI]: SUSHISWAP_XDAI_FACTORY_ADDRESS
+      [ChainId.XDAI]: SUSHISWAP_XDAI_FACTORY_ADDRESS 
     },
-    {
-      [ChainId.MAINNET]: SUSHISWAP_ROUTER_ADDRESS,
-      [ChainId.RINKEBY]: SUSHISWAP_ROUTER_ADDRESS,
+    { 
+      [ChainId.MAINNET]: SUSHISWAP_ROUTER_ADDRESS, 
+      [ChainId.RINKEBY]: SUSHISWAP_ROUTER_ADDRESS, 
       [ChainId.MATIC]: SUSHISWAP_MATIC_ROUTER_ADDRESS,
-      [ChainId.XDAI]: SUSHISWAP_XDAI_ROUTER_ADDRESS
+      [ChainId.XDAI]: SUSHISWAP_XDAI_ROUTER_ADDRESS 
     },
-    {
+    { 
       [ChainId.MAINNET]: '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
       [ChainId.MATIC]: '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303',
       [ChainId.XDAI]: '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303'
@@ -100,4 +101,4 @@ export class RoutablePlatform {
   public supportsChain(chainId: ChainId): boolean {
     return !!this.factoryAddress[chainId]
   }
-}
+} 
