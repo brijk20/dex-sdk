@@ -121,7 +121,7 @@ export class Pair {
 
     this.platform = platform ? platform : RoutablePlatform.HONEYSWAP
     const liquidityTokenAddress = Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform)
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DEX', 'DexSwap') // DexSwap Token LP?
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DEX-LP', 'DexSwap-LP Token') // DexSwap Token LP?
     this.protocolFeeDenominator = protocolFeeDenominator ? protocolFeeDenominator : defaultProtocolFeeDenominator
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
     this.swapFee = swapFee ? swapFee : platform.defaultSwapFee

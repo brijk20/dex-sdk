@@ -379,9 +379,9 @@ export abstract class Fetcher {
       [1, 'https://tokens.coingecko.com/uniswap/all.json'],
       [100, 'https://tokens.honeyswap.org'],
       [137, 'https://tokens.honeyswap.org'],
-      [97, 'https://github.com/brijk20/DEX/blob/main/package.json'],
-      [80001, 'https://github.com/brijk20/DEX/blob/main/package.json'],
-      [43113, 'https://github.com/brijk20/DEX/blob/main/package.json']
+      [43113, 'https://github.com/brijk20/DEX/blob/main/package.json'], // testnet avalanche
+      [80001, 'https://github.com/brijk20/DEX/blob/main/package.json'], // testnet matic
+      [97, 'https://github.com/brijk20/DEX/blob/main/package.json'] // testnet binance
     ])
 
     // const tokenRegistryContract = new Contract(TOKEN_REGISTRY_ADDRESS[chainId], TokenRegistryAbi, provider)

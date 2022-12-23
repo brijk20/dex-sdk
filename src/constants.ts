@@ -9,7 +9,11 @@ import {
   arbitrumTestnetV3 as coreArbitrumTestnetV3,
   sokol as coreSokol,
   xdai as coreXDai,
-  matic as coreMatic
+  matic as coreMatic,
+  tavalanche as coreTavalanche,
+  tmatic as coreTmatic,
+  tbinance as coreTbinance
+
 } from 'dxswap-core/.contracts.json'
 import {
   rinkeby as peripheryRinkeby,
@@ -17,7 +21,11 @@ import {
   arbitrumTestnetV3 as peripheryArbitrumTestnetV3,
   sokol as peripherySokol,
   xdai as peripheryXDai,
-  matic as peripheryMatic
+  matic as peripheryMatic,
+  tavalanche as peripheryTavalanche,
+  tmatic as peripheryTmatic,
+  tbinance as peripheryTbinance
+
 } from 'dxswap-periphery/.contracts.json'
 
 // exports for external consumption
@@ -55,9 +63,9 @@ export const FACTORY_ADDRESS: { [chainId: number]: string } = {
   [ChainId.SOKOL]: coreSokol.factory,
   [ChainId.XDAI]: coreXDai.factory,
   [ChainId.MATIC]: coreMatic.factory,
-  [ChainId.tAVALANCHE]: coreMatic.factory,
-  [ChainId.tMATIC]: coreMatic.factory,
-  [ChainId.tBINANCE]: coreMatic.factory
+  [ChainId.tAVALANCHE]: coreTavalanche.factory,
+  [ChainId.tMATIC]: coreTmatic.factory,
+  [ChainId.tBINANCE]: coreTbinance.factory
 }
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
@@ -67,9 +75,9 @@ export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.SOKOL]: peripherySokol.router,
   [ChainId.XDAI]: peripheryXDai.router,
   [ChainId.MATIC]: peripheryMatic.router,
-  [ChainId.tAVALANCHE]: peripheryMatic.router,
-  [ChainId.tMATIC]: peripheryMatic.router,
-  [ChainId.tBINANCE]: peripheryMatic.router
+  [ChainId.tAVALANCHE]: peripheryTavalanche.router,
+  [ChainId.tMATIC]: peripheryTmatic.router,
+  [ChainId.tBINANCE]: peripheryTbinance.router
 
 }
 

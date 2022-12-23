@@ -543,9 +543,9 @@
     "@babel/helper-plugin-utils" "^7.18.6"
 
 "@babel/plugin-transform-block-scoping@^7.20.2":
-  version "7.20.8"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.20.8.tgz#ad142bce04ae32225e2379ca54f06d5cea92fdb8"
-  integrity sha512-ztBCIWJvcWJvtxhMqIrItLmGlbxaa/5hl7HlZvV4f9oS08wWn/mEtf5D35qxFp3rTK8KjV9TePEoeal8z02gzA==
+  version "7.20.9"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.20.9.tgz#2034307073e243fd476dddb5472ec35d13802853"
+  integrity sha512-hwZN0kr16UkIF/kR9F9x8gd1kTkQl1vyAF2lkUmlTuCtTKOGLE5blQctuxEeKXwz0dkArQ9RYL8+HLb/75KGMA==
   dependencies:
     "@babel/helper-plugin-utils" "^7.20.2"
 
@@ -2711,16 +2711,21 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
-"dxswap-core@https://github.com/brijk20/dxswap-core.git", "dxswap-core@https://github.com/brijk20/dxswap-core.git#master":
+"dxswap-core@https://github.com/brijk20/dex-core.git":
   version "0.3.6"
-  uid f93b5f4b5a78ed1282525e67c490f2660f0a54f7
+  resolved "https://github.com/brijk20/dex-core.git#86d3742f7e78f8771dcc86806f41fa49e0b4467e"
+  dependencies:
+    typescript "^3.9.5"
+
+"dxswap-core@https://github.com/brijk20/dxswap-core.git":
+  version "0.3.6"
   resolved "https://github.com/brijk20/dxswap-core.git#f93b5f4b5a78ed1282525e67c490f2660f0a54f7"
   dependencies:
     typescript "^3.9.5"
 
-"dxswap-periphery@https://github.com/brijk20/dxswap-periphery.git#master":
+"dxswap-periphery@https://github.com/brijk20/dex-periphery.git":
   version "0.3.7"
-  resolved "https://github.com/brijk20/dxswap-periphery.git#ba909cf2f83526e42b40c765a825160ff372718d"
+  resolved "https://github.com/brijk20/dex-periphery.git#2d9fffeda3b463a02515ac0c875b87628d755c24"
   dependencies:
     dxswap-core "https://github.com/brijk20/dxswap-core.git"
 
