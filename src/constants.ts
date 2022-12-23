@@ -54,7 +54,10 @@ export const FACTORY_ADDRESS: { [chainId: number]: string } = {
   [ChainId.ARBITRUM_TESTNET_V3]: coreArbitrumTestnetV3.factory,
   [ChainId.SOKOL]: coreSokol.factory,
   [ChainId.XDAI]: coreXDai.factory,
-  [ChainId.MATIC]: coreMatic.factory
+  [ChainId.MATIC]: coreMatic.factory,
+  [ChainId.tAVALANCHE]: coreMatic.factory,
+  [ChainId.tMATIC]: coreMatic.factory,
+  [ChainId.tBINANCE]: coreMatic.factory
 }
 
 export const ROUTER_ADDRESS: { [chainId in ChainId]?: string } = {
